@@ -1,0 +1,10 @@
+date = "2020-06-03 22:40:43"
+<action android:name="android.intent.action.MAIN" />
+<action android:name="aaabbb" />
+<action android:name="aaabbb" />
+123
+111
+333333
+
+
+66666666666
