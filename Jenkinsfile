@@ -9,9 +9,9 @@ pipeline {
             }
         }
         stage('Test') {
-            steps {
-                echo 'Testing..'
-                bat 'start cmd.exe /c D:\\123.bat'
+            node(running_node) {
+                println "utest with $env_json_data"
+                bat script: 'start mspaint.exe', returnStatus: true
             }
         }
         stage('Deploy') {
