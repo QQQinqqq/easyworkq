@@ -13,7 +13,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
-                bat script: 'call D:\jiangqin\SVN\27-auto_test\run.bat', returnStatus: true
+                bat script: 'call D:\\jiangqin\\SVN\\27-auto_test\\run.bat', returnStatus: true
             }
         }
         stage('Deploy') {
