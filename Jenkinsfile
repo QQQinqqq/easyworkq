@@ -11,6 +11,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
+                start notepad.exe
             }
         }
         stage('Deploy') {
