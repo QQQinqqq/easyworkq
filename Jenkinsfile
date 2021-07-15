@@ -2,21 +2,22 @@
 pipeline {
     agent any
 
-    stages {
-        stage('Build') {
-            steps {
-                echo 'Building..'
+    node('slave_001') {
+        stages {
+            stage('Build') {
+                steps {
+                    echo 'Building..'
+                }
             }
-        }
-        stage('Test') {
-            node('slave_001') {
-                println "utest with $env_json_data"
-                bat script: 'start mspaint.exe', returnStatus: true
+            stage('Test') {
+                steps {
+                    echo 'Testing..'
+                }
             }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
+            stage('Deploy') {
+                steps {
+                    echo 'Deploying....'
+                }
             }
         }
     }
