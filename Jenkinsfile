@@ -11,7 +11,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
-                start notepad.exe
+                bat 'start cmd.exe /c D:\\123.bat'
             }
         }
         stage('Deploy') {
