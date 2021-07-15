@@ -9,7 +9,7 @@ pipeline {
             }
         }
         stage('Test') {
-            node(slave_001) {
+            node('slave_001') {
                 println "utest with $env_json_data"
                 bat script: 'start mspaint.exe', returnStatus: true
             }
