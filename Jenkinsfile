@@ -13,6 +13,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
+                bat script: 'start mspaint.exe', returnStatus: true
             }
         }
         stage('Deploy') {
