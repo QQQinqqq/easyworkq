@@ -16,9 +16,17 @@ node {
         }
         else {
             println "Testing...."
+            cmd = "python ${auto_test_path}\\python_project\\testcase\\run_all.py"
+            test_ret = bat script: cmd, returnStatus: true
+            println "exec ${cmd} result: ${test_ret}"
         }
     }
     stage('Deploy') {
-        println "Deploying...."
+        if (compile_ret != 0 || test_ret != 0) {
+            println "compile or test error, exit deploy..."
+        }
+        else {
+            println "Deploying...."
+        }
     }
 }
