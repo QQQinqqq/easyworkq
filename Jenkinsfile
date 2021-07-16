@@ -6,8 +6,8 @@ def test_ret = '1'
 node {
     stage('Build') {
         println "Building...."
-        def cmd = "python ${auto_test_path}\\python_project\\compile_and_load.py"
-        def compile_ret = bat script: cmd, returnStatus: true
+        cmd = "python ${auto_test_path}\\python_project\\compile_and_load.py"
+        compile_ret = bat script: cmd, returnStatus: true
         println "exec ${cmd} result: ${compile_ret}"
     }
     stage('Test') {
