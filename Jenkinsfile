@@ -1,4 +1,4 @@
-def auto_test_path = "D:\\jiangqin\\SVN\\27-auto_test"
+def auto_test_path = "D:\\qqq\\SVN\\27-auto_test"
 def cmd = " "
 def compile_ret = '1'
 def test_ret = '1'
