@@ -11,7 +11,7 @@ node {
         println "exec ${cmd} result: ${compile_ret}"
     }
     stage('Test') {
-        if (compile_ret != '0') {
+        if (compile_ret != 0) {
         println "compile error, exit test..."
         }
         else {
