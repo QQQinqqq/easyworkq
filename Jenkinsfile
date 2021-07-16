@@ -1,6 +1,4 @@
-parameters {
-        string(name: 'auto_test_path', defaultValue: 'D:\\jiangqin\\SVN\\27-auto_test', description: 'auto_test路径')
-        }
+def auto_test_path = "D:\\jiangqin\\SVN\\27-auto_test"
 
 node {
     stage('Build') {
