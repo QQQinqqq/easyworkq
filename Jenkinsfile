@@ -6,20 +6,18 @@ pipeline {
     
     parameters {
         string(name: 'auto_test_path', defaultValue: 'D:\\jiangqin\\SVN\\27-auto_test', description: 'auto_test路径')
-        string(name: 'auto_test_path', defaultValue: 'D:\\jiangqin\\SVN\\27-auto_test', description: 'auto_test路径')
+        string(name: 'compile_ret', defaultValue: '1', description: '返回结果变量定义')
+        string(name: 'test_ret', defaultValue: '1', description: '返回结果变量定义')
+        string(name: 'cmd', defaultValue: ' ', description: '命令变量定义')
     }
-    
-    def compile_ret = 0
-    def test_ret = 0
-    def cmd = ''
 
     stages {
         stage('Build') {
             steps {
                 echo 'Building...'
-                cmd = "python ${auto_test_path}\\python_project\\compile_and_load.py"
-                compile_ret = bat script: cmd, returnStatus: true
-                println "exec $cmd result: $compile_ret"
+                params.cmd = "python ${params.auto_test_path}\\python_project\\compile_and_load.py"
+                params.compile_ret = bat script: params.cmd, returnStatus: true
+                println "exec ${params.cmd} result: ${params.compile_ret}"
             }
         }
         
@@ -30,12 +28,10 @@ pipeline {
                 }
                 else {
                     echo 'Testing...'
-                    cmd = '${auto_test_path}\\python_project\\testcase\\run_all.py'
-                    test_ret = bat script: cmd, returnStatus: true
-                    println "exec $cmd result: $test_ret"
+                    params.cmd = '${params.auto_test_path}\\python_project\\testcase\\run_all.py'
+                    params.test_ret = bat script: params.cmd, returnStatus: true
+                    println "exec ${params.cmd} result: ${params.test_ret}"
                 }
-                
-                
             }
         }
         
