@@ -5,7 +5,8 @@ node {
         echo 'Building....'
     }
     stage('Test') {
-        println "Testing....${params.auto_test_path}"
+        println "Testing....${auto_test_path}"
+        println "Testing2....${auto_test_path}"
     }
     stage('Deploy') {
         echo 'Deploying....'
